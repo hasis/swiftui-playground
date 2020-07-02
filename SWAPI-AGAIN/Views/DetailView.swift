@@ -11,16 +11,23 @@ import URLImage
 
 struct DetailView: View {
     @State var item: CharacterResult
-    
+    @EnvironmentObject var favorites: Favorites
+
     var body: some View {
         VStack (alignment: .center) {
             
             VStack {
                 Text(item.name).font(.largeTitle)
                 URLImage(item.image)
-                .padding()
-                .frame(width: 300, height: 300)
-                .clipShape(RoundedRectangle(cornerRadius: 1800))
+                    .padding()
+                    .frame(width: 300, height: 300)
+                    .clipShape(RoundedRectangle(cornerRadius: 180))
+                Button(action: {
+                    self.favorites.add(item: self.item)
+                }) {
+                    Text("Favorite")
+                        .font(.headline)
+                }
             }
             
             HStack {
@@ -28,7 +35,6 @@ struct DetailView: View {
                     .bold()
                 Text(item.origin["name"]!)
                 Spacer()
-                
             }
             
             HStack{
@@ -66,12 +72,19 @@ struct DetailView: View {
             Spacer()
         }
         .padding()
+        .navigationBarTitle(item.name)
+        .environmentObject(favorites)
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
+    static let favorites = Favorites()
+    
     static var previews: some View {
+
         DetailView(item: CharacterResult(
+            id: 1,
+            created: "...",
             name: "Bob",
             gender: "n/a",
             status: "DEAD",
@@ -81,6 +94,7 @@ struct DetailView_Previews: PreviewProvider {
             type: "Type",
             location: ["name": "Earth"],
             origin: ["name": "Earth"]
-        ))
+            )
+        ).environmentObject(favorites)
     }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		407CB9FD24AC3BC700F698CB /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407CB9FC24AC3BC700F698CB /* FavoritesView.swift */; };
+		407CB9FF24ACBECB00F698CB /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407CB9FE24ACBECB00F698CB /* CharacterListView.swift */; };
+		407CBA0224AD491E00F698CB /* CharacterCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407CBA0124AD491E00F698CB /* CharacterCellView.swift */; };
 		40A5207624A8CBDD00A1843F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5207524A8CBDD00A1843F /* AppDelegate.swift */; };
 		40A5207824A8CBDD00A1843F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5207724A8CBDD00A1843F /* SceneDelegate.swift */; };
 		40A5207A24A8CBDD00A1843F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5207924A8CBDD00A1843F /* ContentView.swift */; };
@@ -19,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		407CB9FC24AC3BC700F698CB /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		407CB9FE24ACBECB00F698CB /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
+		407CBA0124AD491E00F698CB /* CharacterCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellView.swift; sourceTree = "<group>"; };
+		407CBA0324AD495500F698CB /* todo.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = todo.md; sourceTree = "<group>"; };
 		40A5207224A8CBDD00A1843F /* SWAPI-AGAIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SWAPI-AGAIN.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A5207524A8CBDD00A1843F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40A5207724A8CBDD00A1843F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +50,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		407CBA0024ACC2EE00F698CB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				40A5207924A8CBDD00A1843F /* ContentView.swift */,
+				40A5208924A8F4B500A1843F /* DetailView.swift */,
+				407CB9FC24AC3BC700F698CB /* FavoritesView.swift */,
+				407CB9FE24ACBECB00F698CB /* CharacterListView.swift */,
+				407CBA0124AD491E00F698CB /* CharacterCellView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		40A5206924A8CBDD00A1843F = {
 			isa = PBXGroup;
 			children = (
@@ -62,15 +81,15 @@
 		40A5207424A8CBDD00A1843F /* SWAPI-AGAIN */ = {
 			isa = PBXGroup;
 			children = (
+				407CBA0024ACC2EE00F698CB /* Views */,
 				40A5207524A8CBDD00A1843F /* AppDelegate.swift */,
 				40A5207724A8CBDD00A1843F /* SceneDelegate.swift */,
-				40A5207924A8CBDD00A1843F /* ContentView.swift */,
 				40A5207B24A8CBE000A1843F /* Assets.xcassets */,
 				40A5208024A8CBE000A1843F /* LaunchScreen.storyboard */,
 				40A5208324A8CBE000A1843F /* Info.plist */,
 				40A5207D24A8CBE000A1843F /* Preview Content */,
-				40A5208924A8F4B500A1843F /* DetailView.swift */,
 				40A5208B24A938D300A1843F /* Controller.swift */,
+				407CBA0324AD495500F698CB /* todo.md */,
 			);
 			path = "SWAPI-AGAIN";
 			sourceTree = "<group>";
@@ -162,6 +181,9 @@
 			files = (
 				40A5208C24A938D300A1843F /* Controller.swift in Sources */,
 				40A5207624A8CBDD00A1843F /* AppDelegate.swift in Sources */,
+				407CBA0224AD491E00F698CB /* CharacterCellView.swift in Sources */,
+				407CB9FF24ACBECB00F698CB /* CharacterListView.swift in Sources */,
+				407CB9FD24AC3BC700F698CB /* FavoritesView.swift in Sources */,
 				40A5208A24A8F4B500A1843F /* DetailView.swift in Sources */,
 				40A5207824A8CBDD00A1843F /* SceneDelegate.swift in Sources */,
 				40A5207A24A8CBDD00A1843F /* ContentView.swift in Sources */,

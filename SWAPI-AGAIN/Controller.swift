@@ -12,7 +12,9 @@ struct Response: Codable {
     var results: [CharacterResult]
 }
 
-struct CharacterResult: Codable {
+struct CharacterResult: Codable, Equatable {
+    var id: Int
+    var created: String
     var name: String
     var gender: String
     var status: String
@@ -24,3 +26,17 @@ struct CharacterResult: Codable {
     var origin: [String: String]
 }
 
+class Favorites: ObservableObject {
+    @Published var favorites = [CharacterResult]()
+
+    func add(item: CharacterResult) {
+        favorites.append(item)
+        print(favorites)
+    }
+
+    func remove(item: CharacterResult) {
+        if let index = favorites.firstIndex(of: item) {
+            favorites.remove(at: index)
+        }
+    }
+}
