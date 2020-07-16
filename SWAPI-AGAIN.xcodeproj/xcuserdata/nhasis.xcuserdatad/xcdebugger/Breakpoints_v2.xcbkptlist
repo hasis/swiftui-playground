@@ -8,16 +8,48 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B9E98FF3-176A-4B17-9EEC-B4A30CEA490B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SWAPI-AGAIN/Controller.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "remove(item:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B9E98FF3-176A-4B17-9EEC-B4A30CEA490B - 27a43f4cf28f065b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SWAPI_AGAIN.Favorites.remove(item: SWAPI_AGAIN.CharacterResult) -&gt; ()"
+                  moduleName = "SWAPI-AGAIN"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nhasis/Downloads/Swift/SWAPI-AGAIN/SWAPI-AGAIN/Controller.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "204">
+               </Location>
+               <Location
+                  uuid = "B9E98FF3-176A-4B17-9EEC-B4A30CEA490B - 26f21548c52b69b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(extension in SWAPI_AGAIN_PreviewReplacement_Controller_7):SWAPI_AGAIN.Favorites.(__preview__remove in _62CFF0D6701F8BE63A8EFF7BB1B0EA7C)(item: SWAPI_AGAIN.CharacterResult) -&gt; ()"
+                  moduleName = "Controller.7.preview-thunk.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nhasis/Downloads/Swift/SWAPI-AGAIN/SWAPI-AGAIN/Controller.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "110">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

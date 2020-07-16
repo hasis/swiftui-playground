@@ -12,22 +12,38 @@ import URLImage
 struct DetailView: View {
     @State var item: CharacterResult
     @EnvironmentObject var favorites: Favorites
+    @State private var animationAmount: CGFloat = 1
 
     var body: some View {
         VStack (alignment: .center) {
             
             VStack {
                 Text(item.name).font(.largeTitle)
-                URLImage(item.image)
-                    .padding()
-                    .frame(width: 300, height: 300)
-                    .clipShape(RoundedRectangle(cornerRadius: 180))
-                Button(action: {
-                    self.favorites.add(item: self.item)
-                }) {
-                    Text("Favorite")
-                        .font(.headline)
+                ZStack {
+                    URLImage(item.image)
+                        .padding()
+                        .frame(width: 300, height: 300)
+                        .clipShape(RoundedRectangle(cornerRadius: 30))
+                    Image(systemName: (self.favorites.contains(item: self.item) ? "star.fill" : "star"))
+                        .frame(width: 30, height: 30)
+                        .scaleEffect(animationAmount)
+                        .animation(.easeInOut(duration: 0.25))
+                        .foregroundColor(.yellow)
+                        .padding(5)
+                        .background(Color(.black).opacity(0.6))
+                        .clipShape(Circle())
+                        .offset(x: 110, y: 110)
+                        .onTapGesture {
+                            if (self.favorites.contains(item: self.item)) {
+                                self.animationAmount -= 0.5
+                                self.favorites.remove(item: self.item)
+                            } else {
+                                self.favorites.add(item: self.item)
+                                self.animationAmount += 0.5
+                            }
+                    }
                 }
+                
             }
             
             HStack {

@@ -11,7 +11,9 @@ import URLImage
 
 struct CharacterCellView: View {
     @State var item: CharacterResult
-
+    @State var showingDetail = false
+    @EnvironmentObject var favorites: Favorites
+        
     var body: some View {
         HStack(alignment: .center) {
             URLImage(self.item.image,
@@ -29,13 +31,28 @@ struct CharacterCellView: View {
             VStack (alignment: .leading) {
                 Text(self.item.name)
                     .font(.headline)
-                Text(self.item.status)
+                Text(self.item.origin["name"]!)
             }
+            
+            if (self.favorites.contains(item: self.item)) {
+                Spacer()
+                Image(systemName: ("star.fill"))
+                .frame(width: 50, height: 50)
+                .foregroundColor(.yellow)
+            }
+        }
+        .onTapGesture {
+            self.showingDetail = true
+        }
+        .sheet(isPresented: self.$showingDetail) {
+            CardView(item: self.item)
+                .environmentObject(self.favorites)
         }
     }
 }
 
 struct CharacterCellView_Previews: PreviewProvider {
+    static let favorites = Favorites()
 
     static var previews: some View {
         CharacterCellView(item: CharacterResult(
@@ -43,13 +60,13 @@ struct CharacterCellView_Previews: PreviewProvider {
         created: "...",
         name: "Bob Bobson",
         gender: "n/a",
-        status: "DEAD",
+        status: "Alive",
         url: "www.google.com",
         species: "N/A",
-        image: URL(string: "https://rickandmortyapi.com/api/character/avatar/2.jpeg")!,
+        image: URL(string: "https://rickandmortyapi.com/api/character/avatar/32.jpeg")!,
         type: "Type",
         location: ["name": "Earth"],
         origin: ["name": "Earth"]
-        ))
+        )).environmentObject(favorites)
     }
 }

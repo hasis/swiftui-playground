@@ -11,10 +11,10 @@ import URLImage
 
 struct CharacterListView: View {
     @State private var results = [CharacterResult]()
-    @State var showingDetail = false
     @State var pageIndex: Int = 1
+    @State var searchString: String = ""
     @EnvironmentObject var favorites: Favorites
-
+    
     private func getNextPageIfNecessary(encounteredIndex: Int) {
         guard encounteredIndex == results.count - 1 else { return }
         pageIndex += 1
@@ -22,7 +22,10 @@ struct CharacterListView: View {
     }
     
     func loadData(index: Int) {
-        guard let apiURL = URL(string: "https://rickandmortyapi.com/api/character/?page=\(index)") else {
+        var url = String()
+        
+        url = "https://rickandmortyapi.com/api/character/?page=\(index)&name=\(searchString)"
+                guard let apiURL = URL(string: url) else {
             print("Invalid URL")
             return
         }
@@ -35,9 +38,8 @@ struct CharacterListView: View {
                 if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
                     DispatchQueue.main.async {
                         self.results.append(contentsOf: decodedResponse.results)
+                        self.results = self.results.removingDuplicates()
                     }
-                    print("Results: \(self.results.count)")
-
                     return
                 }
             }
@@ -46,24 +48,48 @@ struct CharacterListView: View {
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
         }.resume()
     }
-    
 
     var body: some View {
-        List(0..<results.count, id: \.self) { index in
-            Button(action: {
-                self.showingDetail = true
-            }) {
-                CharacterCellView(item: self.results[index])
-            }
-            .sheet(isPresented: self.$showingDetail) {
-                DetailView(item: self.results[index])
-                    .environmentObject(self.favorites)
-            }
-            .onAppear {
-                self.getNextPageIfNecessary(encounteredIndex: index)
-            }
+        VStack {
+            HStack {
+                ZStack {
+                    TextField("Search",
+                              text: $searchString,
+                              onCommit: {
+                                self.results.removeAll();
+                                self.pageIndex = 0;
+                                self.loadData(index: self.pageIndex)
+                    })
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    
+                    Image(systemName: "xmark.circle.fill")
+                        .offset(x: 120)
+                        .onTapGesture {
+                            self.results.removeAll();
+                            self.searchString = ""
+                            self.pageIndex = 0
+                            self.loadData(index: self.pageIndex)
+                        }
+                    }.padding()
+                
+                Button(action: {
+                    self.results.removeAll();
+                    self.pageIndex = 0;
+                    self.loadData(index: self.pageIndex);
+                }) {
+                    Image(systemName: "magnifyingglass")
+                }
+            }.padding()
+            
+            List(0..<results.count, id: \.self) { index in
+                HStack {
+                    CharacterCellView(item: self.results[index])
+                        }.onAppear {
+                            self.getNextPageIfNecessary(encounteredIndex: index)
+                    }
+            }.onAppear {self.loadData(index: self.pageIndex)}
         }
-        .onAppear {self.loadData(index: self.pageIndex)}
     }
 }
 

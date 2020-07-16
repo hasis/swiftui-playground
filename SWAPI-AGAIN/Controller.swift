@@ -12,7 +12,7 @@ struct Response: Codable {
     var results: [CharacterResult]
 }
 
-struct CharacterResult: Codable, Equatable {
+struct CharacterResult: Codable, Equatable, Hashable {
     var id: Int
     var created: String
     var name: String
@@ -33,6 +33,14 @@ class Favorites: ObservableObject {
         favorites.append(item)
         print(favorites)
     }
+    
+    func contains(item: CharacterResult) -> Bool {
+        if (favorites.contains(item)) {
+            return true
+        } else {
+            return false
+        }
+    }
 
     func remove(item: CharacterResult) {
         if let index = favorites.firstIndex(of: item) {
@@ -40,3 +48,18 @@ class Favorites: ObservableObject {
         }
     }
 }
+
+extension Array where Element: Hashable {
+    func removingDuplicates() -> [Element] {
+        var addedDict = [Element: Bool]()
+
+        return filter {
+            addedDict.updateValue(true, forKey: $0) == nil
+        }
+    }
+
+    mutating func removeDuplicates() {
+        self = self.removingDuplicates()
+    }
+}
+

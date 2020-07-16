@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		400779E624B6015B0096E17B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400779E524B6015B0096E17B /* CardView.swift */; };
+		400779E824B67C8D0096E17B /* CardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400779E724B67C8D0096E17B /* CardStackView.swift */; };
+		406077E024BFB58E005746B8 /* CardStack in Frameworks */ = {isa = PBXBuildFile; productRef = 406077DF24BFB58E005746B8 /* CardStack */; };
 		407CB9FD24AC3BC700F698CB /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407CB9FC24AC3BC700F698CB /* FavoritesView.swift */; };
 		407CB9FF24ACBECB00F698CB /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407CB9FE24ACBECB00F698CB /* CharacterListView.swift */; };
 		407CBA0224AD491E00F698CB /* CharacterCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407CBA0124AD491E00F698CB /* CharacterCellView.swift */; };
@@ -22,11 +25,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		400779E524B6015B0096E17B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		400779E724B67C8D0096E17B /* CardStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStackView.swift; sourceTree = "<group>"; };
 		407CB9FC24AC3BC700F698CB /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		407CB9FE24ACBECB00F698CB /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		407CBA0124AD491E00F698CB /* CharacterCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellView.swift; sourceTree = "<group>"; };
 		407CBA0324AD495500F698CB /* todo.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = todo.md; sourceTree = "<group>"; };
-		40A5207224A8CBDD00A1843F /* SWAPI-AGAIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SWAPI-AGAIN.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40A5207224A8CBDD00A1843F /* Rick and Morty 'Plorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rick and Morty 'Plorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A5207524A8CBDD00A1843F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40A5207724A8CBDD00A1843F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		40A5207924A8CBDD00A1843F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +49,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40A5208F24A939FA00A1843F /* URLImage in Frameworks */,
+				406077E024BFB58E005746B8 /* CardStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +64,8 @@
 				407CB9FC24AC3BC700F698CB /* FavoritesView.swift */,
 				407CB9FE24ACBECB00F698CB /* CharacterListView.swift */,
 				407CBA0124AD491E00F698CB /* CharacterCellView.swift */,
+				400779E524B6015B0096E17B /* CardView.swift */,
+				400779E724B67C8D0096E17B /* CardStackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -73,7 +81,7 @@
 		40A5207324A8CBDD00A1843F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				40A5207224A8CBDD00A1843F /* SWAPI-AGAIN.app */,
+				40A5207224A8CBDD00A1843F /* Rick and Morty 'Plorer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,9 +128,10 @@
 			name = "SWAPI-AGAIN";
 			packageProductDependencies = (
 				40A5208E24A939FA00A1843F /* URLImage */,
+				406077DF24BFB58E005746B8 /* CardStack */,
 			);
 			productName = "SWAPI-AGAIN";
-			productReference = 40A5207224A8CBDD00A1843F /* SWAPI-AGAIN.app */;
+			productReference = 40A5207224A8CBDD00A1843F /* Rick and Morty 'Plorer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -151,6 +160,7 @@
 			mainGroup = 40A5206924A8CBDD00A1843F;
 			packageReferences = (
 				40A5208D24A939FA00A1843F /* XCRemoteSwiftPackageReference "url-image" */,
+				406077DE24BFB58E005746B8 /* XCRemoteSwiftPackageReference "SwiftUI-CardStackView" */,
 			);
 			productRefGroup = 40A5207324A8CBDD00A1843F /* Products */;
 			projectDirPath = "";
@@ -180,9 +190,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				40A5208C24A938D300A1843F /* Controller.swift in Sources */,
+				400779E624B6015B0096E17B /* CardView.swift in Sources */,
 				40A5207624A8CBDD00A1843F /* AppDelegate.swift in Sources */,
 				407CBA0224AD491E00F698CB /* CharacterCellView.swift in Sources */,
 				407CB9FF24ACBECB00F698CB /* CharacterListView.swift in Sources */,
+				400779E824B67C8D0096E17B /* CardStackView.swift in Sources */,
 				407CB9FD24AC3BC700F698CB /* FavoritesView.swift in Sources */,
 				40A5208A24A8F4B500A1843F /* DetailView.swift in Sources */,
 				40A5207824A8CBDD00A1843F /* SceneDelegate.swift in Sources */,
@@ -331,8 +343,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "testing.SWAPI-AGAIN";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = testing.rnmplorer;
+				PRODUCT_NAME = "Rick and Morty 'Plorer";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -351,8 +363,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "testing.SWAPI-AGAIN";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = testing.rnmplorer;
+				PRODUCT_NAME = "Rick and Morty 'Plorer";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -382,6 +394,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		406077DE24BFB58E005746B8 /* XCRemoteSwiftPackageReference "SwiftUI-CardStackView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dadalar/SwiftUI-CardStackView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 		40A5208D24A939FA00A1843F /* XCRemoteSwiftPackageReference "url-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
@@ -393,6 +413,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		406077DF24BFB58E005746B8 /* CardStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 406077DE24BFB58E005746B8 /* XCRemoteSwiftPackageReference "SwiftUI-CardStackView" */;
+			productName = CardStack;
+		};
 		40A5208E24A939FA00A1843F /* URLImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 40A5208D24A939FA00A1843F /* XCRemoteSwiftPackageReference "url-image" */;

@@ -13,25 +13,13 @@ struct FavoritesView: View {
     @State var showingDetail = false
 
     var body: some View {
-        NavigationView {
-            VStack {
+            VStack (alignment: .leading) {
                 List(self.favorites.favorites, id: \.id) { item in
-                    Button(action: {
-                        self.showingDetail = true
-                    }) {
-                        CharacterCellView(item: item)
-                    }
-                    .sheet(isPresented: self.$showingDetail) {
-                        DetailView(item: item)
-                            .environmentObject(self.favorites)
-                    }
-                    
+                    CharacterCellView(item: item)
                 }
             }
-        }
         .navigationBarTitle("Favorites")
         .environmentObject(favorites)
-        
     }
 }
 
